@@ -1,0 +1,22 @@
+name : Passing Values to Next Step
+
+on: workflow_dispatch
+
+jobs:
+    passing-values-bw-steps:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Set the value using env var
+              run:
+                echo "variableName=this-is-value" >> $GTIHUB_ENV
+            
+            - name: Create-Varibales
+              id : var_source_step
+              run: |
+                echo "Performing a random task"
+                echo "::set-output name=var1_name::TechSchool"
+
+            - name: Get-Variable-Value
+              run: |
+                echo "Printing the value"
+                echo variavleName: ${{ env.variableName }}
