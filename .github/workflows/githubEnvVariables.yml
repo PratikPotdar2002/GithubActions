@@ -1,0 +1,17 @@
+name : 'List Github Default ENv Variable'
+
+on: 
+    push:
+        branches: [ "main" , "master"]
+
+    pull_request:
+        branches: [ "main" ,"master"]
+
+  # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+jobs:
+    ubuntu-env-variables:
+        runs-on: unbuntu-latest
+        steps: 
+           - run: env
